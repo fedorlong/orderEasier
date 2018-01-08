@@ -1,5 +1,31 @@
 ;jQuery(function($) {
 
+  // handle banner pic slide
+  slideHandler();
+
+  // handle navigator and subNavigator interaction module
+  navigatorAndSubNavHandler();
+
+});
+
+/***************************************************************/
+/************* banner picture slide interaction ****************/
+/***************************************************************/
+
+function slideHandler() {
+  
+}
+
+
+/***************************************************************/
+/*********** navigator and subNavigator interaction ************/
+/***************************************************************/
+
+/**
+ * navigator and subNavigator interaction handle module
+ * @return {[type]} [description]
+ */
+function navigatorAndSubNavHandler() {
   // initialize subNav to hide status
   hideSubNavs();
 
@@ -15,13 +41,13 @@
 
   // document area add clickEvent listener to hide subNav
   docListeningClick();
+}
 
-});
 
 /**
  * hide subNavigators when initialize the page,
  * aim to give a slideDown effect when first show subNav
- * @return {*} [description]
+ * @return {[type]} [description]
  */
 function hideSubNavs() {
 
