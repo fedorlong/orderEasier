@@ -3,9 +3,7 @@
   // initialize subNav to hide status
   hideSubNavs();
 
-
-
-  // click navItem to toggle subNav
+  // navItem add clickEvent listener to toggle subNav
   var btnIntro  = $('#introduce'),
       btnLesson = $('#lesson');
 
@@ -15,6 +13,9 @@
   navBtnListeningClick(btnIntro, subNavIntro, 'hideStatus');
   navBtnListeningClick(btnLesson, subNavLesson, 'hideStatus');
 
+  // document area add clickEvent listener to hide subNav
+  docListeningClick();
+
 });
 
 /**
@@ -23,8 +24,42 @@
  * @return {*} [description]
  */
 function hideSubNavs() {
-  $('#subNav-introduce').hide();
-  $('#subNav-lesson').hide();
+
+  var subNavs = $('.subNav-item');
+
+  for (var index=0; index < subNavs.length; index++) {
+    subNavs.eq(index).slideUp('fast').addClass('hideStatus');
+  }
+}
+
+
+/**
+ * document(except subNavigators and navigatorItems) listening click event,
+ * if click area out of subNavigators, hide subNavigators
+ * @return {[type]} [description]
+ */
+function docListeningClick() {
+
+  $(document).on('click', function(e) {
+
+    var inSubNavArea = false,
+        inTabContainer  = false;
+
+    var _target = e.target;
+
+    while(_target && _target !== document) {
+
+      if ($(_target).hasClass('subNav-item')) { inSubNavArea = true; }
+      if ($(_target).hasClass('tab-container')) { inTabContainer = true; }
+
+      _target = _target.parentNode;
+    }
+
+    if (!inSubNavArea && !inTabContainer) {
+      hideSubNavs();
+    }
+
+  });
 }
 
 
@@ -39,6 +74,8 @@ function hideSubNavs() {
 function navBtnListeningClick(btn, subNav, flagClass) {
 
   btn.on('click', function(e) {
+
+    var _target = e.target;
 
     hideOtherSubNav(subNav, flagClass);
 
