@@ -42,8 +42,8 @@ function docListeningClick() {
 
   $(document).on('click', function(e) {
 
-    var inSubNavArea = false,
-        inTabContainer  = false;
+    var inSubNavArea   = false,
+        inTabContainer = false;
 
     var _target = e.target;
 
