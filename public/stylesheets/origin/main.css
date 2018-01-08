@@ -70,6 +70,13 @@ button {
 .subNav-lesson.hideStatus {
   top: -3000px;
 }
+.slideBox {
+  position: relative;
+  overflow: auto;
+}
+.slideBox ul li {
+  float: left;
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
