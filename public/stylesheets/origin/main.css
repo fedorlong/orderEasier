@@ -1,3 +1,75 @@
+/* reset */
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img {
+  border: none;
+  vertical-align: top;
+}
+input,
+input:focus,
+input:active,
+input:hover,
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+* {
+  box-sizing: border-box;
+}
+.f-l {
+  float: left;
+}
+.f-r {
+  float: right;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+}
+.subNav-intro {
+  position: fixed;
+  z-index: 3;
+  top: 130px;
+  background: gray;
+  width: 100%;
+}
+.subNav-intro.hideStatus {
+  top: -3000px;
+}
+.subNav-lesson {
+  position: fixed;
+  z-index: 3;
+  top: 130px;
+  background: #747372;
+  width: 100%;
+}
+.subNav-lesson.hideStatus {
+  top: -3000px;
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -8,13 +80,12 @@ a {
 .tab-container {
   width: 90%;
   height: 25px;
-  border: 1px solid gray;
   overflow: scroll;
 }
 .tab-container .tab-item {
   width: 100px;
   height: 100%;
-  line-height: 100%;
+  background: beige;
   text-align: center;
   display: inline-block;
 }

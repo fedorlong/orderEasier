@@ -1,23 +1,9 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+// common less
+@import "common/common.less";
 
-a {
-  color: #00B7FF;
-}
+// component less
+@import "component/introSubNav.less";
+@import "component/lessonSubNav.less";
 
-.tab-container {
-  width: 90%;
-  height: 25px;
-  border: 1px solid gray;
-  overflow: scroll;
-
-  .tab-item {
-    width: 100px;
-    height: 100%;
-    line-height: 100%;
-    text-align: center;
-    display: inline-block;
-  }
-}
+// private less
+@import "private/index.less";
