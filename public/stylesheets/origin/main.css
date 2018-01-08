@@ -51,8 +51,24 @@ button {
   font-size: 0;
 }
 .subNav-intro {
+  position: fixed;
+  z-index: 3;
+  top: 130px;
   background: gray;
   width: 100%;
+}
+.subNav-intro.hideStatus {
+  top: -3000px;
+}
+.subNav-lesson {
+  position: fixed;
+  z-index: 3;
+  top: 130px;
+  background: #747372;
+  width: 100%;
+}
+.subNav-lesson.hideStatus {
+  top: -3000px;
 }
 body {
   padding: 50px;
