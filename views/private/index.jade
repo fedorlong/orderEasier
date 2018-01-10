@@ -1,14 +1,12 @@
 extends ../layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  div.tab-container
-    div.tab-item 首页
-    div.tab-item#introduce 产品介绍
-    div.tab-item#lesson 产品教程
-    div.tab-item 产品下载
-    div.tab-item#team 团队介绍
-    
-  include ../component/introSubNav.jade
+  include ../component/header.jade
+  include ../component/prodIntroSubNav.jade
   include ../component/lessonSubNav.jade
+  include ../component/teamIntroSubNav.jade
+  include ../component/landPageSlide.jade
+  
+  div.empty-content 暂时为空内容
+  
+  include ../component/footer.jade
