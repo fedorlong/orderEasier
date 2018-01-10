@@ -189,24 +189,68 @@ body {
 .m-header .nav-ctn li .nav-item:hover {
   color: #FF6066;
 }
-.subNav-intro {
+.m-footer {
+  padding-top: 60px;
+  width: 100%;
+  height: 350px;
+  background: #FF5F6D;
+}
+.m-footer .footer-ctn li {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  overflow: hidden;
+}
+.m-footer .footer-ctn li .footer-tt {
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #FFFFFF;
+}
+.m-footer .footer-ctn li .footer-txt {
+  position: relative;
+  margin-top: 15px;
+  opacity: 0.8;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+.m-footer .footer-ctn li .footer-txt .span-l {
+  position: absolute;
+}
+.m-footer .footer-ctn li .footer-txt .span-r {
+  padding-left: 50px;
+  display: inline-block;
+}
+.prodIntro-subNav {
   position: fixed;
   z-index: 3;
-  top: 130px;
-  background: gray;
+  top: 84px;
   width: 100%;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.5);
 }
-.subNav-intro.hideStatus {
+.prodIntro-subNav.hideStatus {
   top: -3000px;
 }
 .subNav-lesson {
   position: fixed;
   z-index: 3;
-  top: 130px;
-  background: #747372;
+  top: 84px;
   width: 100%;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.5);
 }
 .subNav-lesson.hideStatus {
+  top: -3000px;
+}
+.teamIntro-subNav {
+  position: fixed;
+  z-index: 3;
+  top: 84px;
+  width: 100%;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.teamIntro-subNav.hideStatus {
   top: -3000px;
 }
 .banner {
@@ -220,4 +264,12 @@ body {
 }
 .banner li img {
   width: 100%;
+}
+.empty-content {
+  width: 100%;
+  height: 400px;
+  line-height: 400px;
+  background: gray;
+  text-align: center;
+  font-size: 30px;
 }

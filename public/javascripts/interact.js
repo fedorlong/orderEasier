@@ -34,14 +34,17 @@ function navigatorAndSubNavHandler() {
   hideSubNavs();
 
   // navItem add clickEvent listener to toggle subNav
-  var btnIntro  = $('#introduce'),
-      btnLesson = $('#lesson');
+  var btnProdIntro  = $('#prod-intro'),
+      btnLesson     = $('#prod-lesson'),
+      btnTeamIntro  = $('#team-intro');
 
-  var subNavIntro  = $('#subNav-introduce'),
-      subNavLesson = $('#subNav-lesson');
+  var subNavProdIntro  = $('#prodIntroduce-subNav'),
+      subNavLesson = $('#subNav-lesson'),
+      subNavTeamIntro  = $('#teamIntroduce-subNav');
 
-  navBtnListeningClick(btnIntro, subNavIntro, 'hideStatus');
+  navBtnListeningClick(btnProdIntro, subNavProdIntro, 'hideStatus');
   navBtnListeningClick(btnLesson, subNavLesson, 'hideStatus');
+  navBtnListeningClick(btnTeamIntro, subNavTeamIntro, 'hideStatus');
 
   // document area add clickEvent listener to hide subNav
   docListeningClick();
@@ -72,20 +75,20 @@ function docListeningClick() {
 
   $(document).on('click', function(e) {
 
-    var inSubNavArea   = false,
-        inTabContainer = false;
+    var inSubNavArea  = false,
+        inExceptItems = false;
 
     var _target = e.target;
 
     while(_target && _target !== document) {
 
       if ($(_target).hasClass('subNav-item')) { inSubNavArea = true; }
-      if ($(_target).hasClass('tab-container')) { inTabContainer = true; }
+      if ($(_target).hasClass('except')) { inExceptItems = true; }
 
       _target = _target.parentNode;
     }
 
-    if (!inSubNavArea && !inTabContainer) {
+    if (!inSubNavArea && !inExceptItems) {
       hideSubNavs();
     }
 
