@@ -1,4 +1,4 @@
-;jQuery(function($) {
+;jQuery(function() {
 
   // handle banner pic slide
   slideHandler();
@@ -13,7 +13,11 @@
 /***************************************************************/
 
 function slideHandler() {
-  $('.slideBox').unslider();
+  $('.banner').unslider({
+    arrows: true,
+    fluid: true,
+    dots: true
+  });
 }
 
 
