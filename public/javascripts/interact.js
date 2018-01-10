@@ -14,7 +14,7 @@
 
 function slideHandler() {
   $('.banner').unslider({
-    arrows: true,
+    arrows: false,
     fluid: true,
     dots: true
   });
