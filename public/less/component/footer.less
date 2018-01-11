@@ -1,8 +1,9 @@
 .m-footer {
   padding-top: 60px;
   width: 100%;
-  height: 350px;
-  background: #FF5F6D;
+  height: 302px;
+  background: rgba(239,240,245,0.95) url('../../images/bottom_bg.png') no-repeat;
+  background-size: 100% 302px;
 
   .footer-ctn {
     li {
@@ -13,22 +14,28 @@
 
       .footer-tt {
         margin-bottom: 25px;
-        font-size: 28px;
-        color: #FFFFFF;
+        font-size: 24px;
+        color: #6B6B7C;
       }
 
       .footer-txt {
         position: relative;
         margin-top: 15px;
+        display: block;
         opacity: 0.8;
-        font-size: 18px;
-        color: #FFFFFF;
+        font-size: 14px;
+        color: #AAAABA;
+        &.tianmao {
+          color: #FF3D29;
+        }
 
         .span-l {
           position: absolute;
         }
         .span-r {
           padding-left: 50px;
+          line-height: 20px;
+          margin-top: -2px;
           display: inline-block;
         }
       }
