@@ -1,6 +1,7 @@
 /***********************************************************/
 /**  Author: zhangqh                                      **/
 /**  source: https://segmentfault.com/a/1190000009794646  **/
+/**  Optimiser: longtao                                   **/
 /***********************************************************/
 
 $.extend({
@@ -72,7 +73,7 @@ $.extend({
                             }
                         }
                     }
-                    
+
                 }
             }
             li += '<li class="zh-next"><div class="arrow-r"></div></li>';
