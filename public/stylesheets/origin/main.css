@@ -313,6 +313,12 @@ body {
   width: 100%;
 }
 .zh-page {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
   height: 33px;
 }
 .zh-page ul {
@@ -496,6 +502,7 @@ body {
   height: auto;
 }
 .knowledge-body .right-part .knowledge-list-ctn {
+  position: relative;
   margin-top: 40px;
   margin-bottom: 80px;
   padding-bottom: 180px;
