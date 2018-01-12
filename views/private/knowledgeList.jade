@@ -12,15 +12,15 @@ block content
     div.knowledge-body.clearfix
       div.sidebar-left
         div.side-item.active 栏目一
-          div.arrow-r >
+          div.arrow-r
         div.side-item 栏目二
-          div.arrow-r >
+          div.arrow-r
         div.side-item 栏目三
-          div.arrow-r >
+          div.arrow-r
         div.side-item 栏目四
-          div.arrow-r >
+          div.arrow-r
         div.side-item 栏目五
-          div.arrow-r >
+          div.arrow-r
             
       div.right-part
         div.knowledge-list-ctn
@@ -31,5 +31,19 @@ block content
           div.knowledge-item 标题标题标就好题标题标题标题标题标题标题标题标题标题标题标
           div.knowledge-item 标题标反对十分丰富题标题标题标题标题标题标题标题标题标题标题标题标
           div.knowledge-item 标题标题奋斗奋斗标福鼎市舒服舒服题标题标题标题标题标题标题标题标题标题标题标
+          
+          div.zh-page
+            ul
             
   include ../component/footer.jade
+  
+  script.
+    $.page({
+      ele: '.zh-page ul',
+      curPage: 1,
+      visiblePages: 7,
+      change: function(targetPage) {
+        alert('targetPage is: ' + targetPage);
+      },
+      totalPages: 20
+    });

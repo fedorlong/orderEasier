@@ -1,0 +1,54 @@
+//- 分页器
+.zh-page {
+  height: 33px;
+
+  ul {
+    display: inline-block;
+    height: 100%;
+
+    li {
+      float: left;
+      margin: 0 2.5px;
+      color: #6B6B7C;
+      display: inline-block;
+      width: 32.3px;
+      height: 32.3px;
+      line-height: 32px;
+      text-align: center;
+      border: 1px solid #D8D8E2;
+      border-radius: 3.23px;
+      font-size: 11px;
+      &:not(.zh-ellipsis) {
+        cursor: pointer;
+      }
+
+      &:not(.zh-ellipsis):hover, &.zh-cur {
+        color: #22253A;
+        background: #AAAABA;
+      }
+
+      &.zh-prev {
+        .arrow-l {
+          margin: 0 auto;
+          margin-top: 10px;
+          width: 5px;
+          height: 10px;
+          background: url('../../images/left_gray_1.png') no-repeat;
+          background-size: 5px 10px;
+        }
+      }
+
+      &.zh-next {
+        .arrow-r {
+          margin: 0 auto;
+          margin-top: 10px;
+          width: 5px;
+          height: 10px;
+          background: url('../../images/right_gray_1.png') no-repeat;
+          background-size: 5px 10px;
+        }
+      }
+
+    }
+  }
+}

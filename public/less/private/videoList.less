@@ -20,8 +20,12 @@
 
       .arrow-r {
         position: absolute;
-        top: -2px;
-        right: 15px;
+        width: 10px;
+        height: 13px;
+        background: url('../../images/right_gray_1.png') no-repeat;
+        background-size: 6.1px 11px;
+        top: 5px;
+        right: 11px;
       }
 
       &:first-child {
@@ -31,6 +35,10 @@
       &.active, &:hover {
         color: #FF6066;
         border-left: 2px solid #FF6066;
+        .arrow-r {
+          background: url('../../images/right_red_1.png') no-repeat;
+          background-size: 6.1px 11px;
+        }
       }
     }
 
