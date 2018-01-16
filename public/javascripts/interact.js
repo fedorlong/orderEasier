@@ -6,6 +6,9 @@
   // handle navigator and subNavigator interaction module
   navigatorAndSubNavHandler();
 
+  // handle video-item clicked, video popup and autoplay
+  videoHandler();
+
 });
 
 /***************************************************************/
@@ -140,4 +143,44 @@ function hideOtherSubNav(currentSubNav, flagClass) {
     }
   }
 
+}
+
+/***************************************************************/
+/*********** handle video item clicked interaction  ************/
+/***************************************************************/
+
+/**
+ * add click eventListener for video-item, show video popup and disableScroll
+ * @return {[type]} [description]
+ */
+function videoHandler() {
+  var body = $('body')[0];
+  var popupGray = $('.popup-gray');
+
+  $('.video-item').on('click', function(e) {
+    if (popupGray.hasClass('display') && popupGray.css('display') !== 'block'
+        || !popupGray || !popupGray.hasClass('display')) {
+
+      popupGray.show();
+      disableScroll(body);
+
+      handlePopupHide(body, popupGray);
+    }
+  });
+}
+
+/**
+ * popup hiding handler
+ * @param  {dom} body      enable body scroll after hide popup
+ * @param  {jQuery object} popupGray the popup module
+ * @return {[type]}           [description]
+ */
+function handlePopupHide(body, popupGray) {
+  if (popupGray && popupGray.css('display') === 'block') {
+
+    popupGray.on('click', function(e) {
+      popupGray.hide();
+      enableScroll(body);
+    });
+  }
 }
