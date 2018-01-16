@@ -64,15 +64,14 @@ html
               width='100%'
               height='100%'
               preload='none'
-              data-setup='{}'
               loop autoplay controls)
-          source(src='http://cvideo.mwee.cn/media-4.18.mp4' type='video/mp4')
-          source(src='http://cvideo.mwee.cn/media-4.18.ogv' type='video/ogv')
-          track(kind='captions' src='demo.captions.vtt' srclang='en' label='English')
-          track(kind='subtitles' src='demo.captions.vtt' srclang='en' label='English')
-          
-        //- for ie
-        script.
-          videojs.options.flash.swf = 'http://cvideo.mwee.cn/media-4.18.swf';
+          source(src='' type='video/mp4')
+          source(src='' type='video/ogv')
+        //-   track(kind='captions' src='demo.captions.vtt' srclang='en' label='English')
+        //-   track(kind='subtitles' src='demo.captions.vtt' srclang='en' label='English')
+        //- 
+        //- //- for ie
+        //- script.
+        //-   videojs.options.flash.swf = 'http://cvideo.mwee.cn/media-4.18.swf';
               
     include ../component/footer.jade

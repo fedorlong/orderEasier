@@ -164,10 +164,31 @@ function videoHandler() {
       popupGray.show();
       disableScroll(body);
 
+      renderVideo();
+
       videoAreaListeningMouseMove();
       popupGrayListeningClick(body, popupGray);
       closeBtnListeningClick(body, popupGray);
     }
+  });
+}
+
+function renderVideo() {
+  var videoSrc = 'http://cvideo.mwee.cn/media-4.18.ogv';
+
+  var _player = videojs('video-for-h5');
+
+  videojs('video-for-h5', {}, function() {
+    // window._player = this;
+    console.log('this: ')
+
+    $('#video-for-h5 source').eq(0).attr('src', videoSrc);
+    $('#video-for-h5 source').eq(1).attr('src', videoSrc);
+
+    _player.src(videoSrc);
+    _player.load(videoSrc)
+    _player.play();
+    
   });
 }
 
@@ -220,6 +241,7 @@ function popupGrayListeningClick(body, popupGray) {
       }
 
       if (inGrayArea) {
+        _player.pause();
         popupGray.hide();
         enableScroll(body);
       }
@@ -231,6 +253,7 @@ function closeBtnListeningClick(body, popupGray) {
   var closeBtn = $('.close-btn');
 
   closeBtn.on('click', function() {
+    _player.pause();
     popupGray.hide();
     enableScroll(body);
   });
