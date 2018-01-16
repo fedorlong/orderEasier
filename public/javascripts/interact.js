@@ -164,9 +164,38 @@ function videoHandler() {
       popupGray.show();
       disableScroll(body);
 
-      handlePopupHide(body, popupGray);
+      videoAreaListeningMouseMove();
+      popupGrayListeningClick(body, popupGray);
+      closeBtnListeningClick(body, popupGray);
     }
   });
+}
+
+
+/**
+ * video title show when mousemove, hide after few seconds
+ * @return {[type]} [description]
+ */
+function videoAreaListeningMouseMove() {
+  var timerId = -1;
+
+  var video = $('.popup-video');
+  var videoTitle = $('.video-tt');
+
+  hideTitleAfterSeconds(1000);
+
+  video.on('mousemove', function(e) {
+    videoTitle.fadeIn();
+    hideTitleAfterSeconds(2750);
+  });
+
+  function hideTitleAfterSeconds(delay) {
+    if (!!timerId) { clearTimeout(timerId); }
+    timerId = setTimeout(function() {
+      videoTitle.fadeOut();
+    }, delay);
+  }
+
 }
 
 /**
@@ -175,12 +204,34 @@ function videoHandler() {
  * @param  {jQuery object} popupGray the popup module
  * @return {[type]}           [description]
  */
-function handlePopupHide(body, popupGray) {
+function popupGrayListeningClick(body, popupGray) {
   if (popupGray && popupGray.css('display') === 'block') {
 
     popupGray.on('click', function(e) {
-      popupGray.hide();
-      enableScroll(body);
+
+      var inGrayArea = false;
+      var _target = e.target;
+
+      while(_target && _target !== $('.popup-video')[0]) {
+
+        if ($(_target).hasClass('popup-gray')) { inGrayArea = true; }
+
+        _target = _target.parentNode;
+      }
+
+      if (inGrayArea) {
+        popupGray.hide();
+        enableScroll(body);
+      }
     });
   }
+}
+
+function closeBtnListeningClick(body, popupGray) {
+  var closeBtn = $('.close-btn');
+
+  closeBtn.on('click', function() {
+    popupGray.hide();
+    enableScroll(body);
+  });
 }

@@ -12,13 +12,36 @@
 
   .popup-video {
     &:extend(.vertical-center);
-    position: fixed;
     z-index: 55;
     width: 1058px;
     height: 762px;
     left: 0;
     right: 0;
     margin: auto;
+
+    .video-tt {
+      position: absolute;
+      z-index: 57;
+      width: 1058px;
+      height: 83px;
+      line-height: 83px;
+      text-align: center;
+      background: #000000;
+      font-size: 22.8px;
+      color: #CCCCCC;
+
+      .close-btn {
+        position: absolute;
+        z-index: 57;
+        top: 23px;
+        right: 23px;
+        width: 39px;
+        height: 39px;
+        background: url(../../images/close_btn.png) no-repeat;
+        background-size: 39px 39px;
+        cursor: pointer;
+      }
+    }
   }
 }
 
