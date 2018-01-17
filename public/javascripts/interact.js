@@ -157,14 +157,14 @@ function videoHandler() {
   var body = $('body')[0];
   var popupGray = $('.popup-gray');
 
-  $('.video-item').on('click', function(e) {
+  $('.video-item').unbind('click').on('click', function(e) {
     if (popupGray.hasClass('display') && popupGray.css('display') !== 'block'
         || !popupGray || !popupGray.hasClass('display')) {
 
       popupGray.show();
       disableScroll(body);
 
-      renderVideo();
+      renderVideo(popupGray);
 
       videoAreaListeningMouseMove();
       popupGrayListeningClick(body, popupGray);
@@ -173,23 +173,29 @@ function videoHandler() {
   });
 }
 
-function renderVideo() {
-  var videoSrc = 'http://cvideo.mwee.cn/media-4.18.ogv';
+function renderVideo(popup) {
 
-  var _player = videojs('video-for-h5');
+  var title = '这是视频的标题';
 
-  videojs('video-for-h5', {}, function() {
-    // window._player = this;
-    console.log('this: ')
+  var mp4Src = 'http://cvideo.mwee.cn/media-4.18.mp4';
+  var ogvSrc = 'http://cvideo.mwee.cn/media-4.18.ogv';
+  var swfSrc = 'http://cvideo.mwee.cn/media-4.18.swf';
 
-    $('#video-for-h5 source').eq(0).attr('src', videoSrc);
-    $('#video-for-h5 source').eq(1).attr('src', videoSrc);
+  popup.html(
+    '<div class="popup-video">' +
+      '<div class="video-tt">' + title +
+        '<div class="close-btn"></div>' +
+      '</div>' +
+      '<video id="video-for-h5" class="video-js vjs-default-skin" width="100%" height="100%" preload="none" data-setup="{}" loop autoplay controls>' +
+        '<source src="' + mp4Src + '" type="video/mp4" />' +
+        '<source src="' + ogvSrc + '" type="video/ogv" />' +
+      '</video>' +
+      '<script> videojs.options.flash.swf = "' + swfSrc + '" </script>' +
+    '</div>'
+  );
 
-    _player.src(videoSrc);
-    _player.load(videoSrc)
-    _player.play();
-    
-  });
+  // initialize
+  // var _player = videojs('video-for-h5', {}, function() {});
 }
 
 
@@ -228,7 +234,7 @@ function videoAreaListeningMouseMove() {
 function popupGrayListeningClick(body, popupGray) {
   if (popupGray && popupGray.css('display') === 'block') {
 
-    popupGray.on('click', function(e) {
+    popupGray.unbind('click').on('click', function(e) {
 
       var inGrayArea = false;
       var _target = e.target;
@@ -241,7 +247,7 @@ function popupGrayListeningClick(body, popupGray) {
       }
 
       if (inGrayArea) {
-        _player.pause();
+        popupGray.html('');
         popupGray.hide();
         enableScroll(body);
       }
@@ -252,8 +258,8 @@ function popupGrayListeningClick(body, popupGray) {
 function closeBtnListeningClick(body, popupGray) {
   var closeBtn = $('.close-btn');
 
-  closeBtn.on('click', function() {
-    _player.pause();
+  closeBtn.unbind('click').on('click', function() {
+    popupGray.html('');
     popupGray.hide();
     enableScroll(body);
   });
